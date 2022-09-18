@@ -3,8 +3,8 @@ name: Deploy_to_ec2
 # Trigger deployment only on push to master branch
 on:
   push:
-    branches:
-      - master
+    paths:
+      - "**.py"
 
 jobs:
   deploy:
