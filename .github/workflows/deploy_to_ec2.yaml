@@ -17,7 +17,7 @@ jobs:
       - name: Deploy files to ec2 server
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.carnot_tech }}
+          SSH_PRIVATE_KEY: ${{ secrets.CARNOT_TECH }}
           REMOTE_HOST: ${{ secrets.EC2_PUBLIC_DNS }}
           REMOTE_USER: ${{ secrets.EC2_USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
