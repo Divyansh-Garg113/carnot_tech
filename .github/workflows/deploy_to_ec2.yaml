@@ -15,13 +15,14 @@ jobs:
       - name: Checkout the files
         uses: actions/checkout@v3
       
-      - name: Deploy to ec2 server
-        uses: easingthemes/ssh-deploy@main
+      - name: Deploy code to ec2 server
+        uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.SSH_HOST }}
-          REMOTE_USER: ${{ secrets.EC2_USERNAME }}
-          TARGET: "/app/carnot_tech"
+          SOURCE: "./"
+          REMOTE_HOST: "ec2-35-154-158-70.ap-south-1.compute.amazonaws.com"
+          REMOTE_USER: "cornet_tech"
+          TARGET: "/app/"
       
       - name: restart supervisor process
         uses: appleboy/ssh-action@master
