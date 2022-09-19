@@ -20,8 +20,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
-          username: ${{ secrets.EC2_USERNAME }}
-          password: "Cornet@123"
+          username: root
           scp_target: "/app/"
           before_script: |
             df -h
