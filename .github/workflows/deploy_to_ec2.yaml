@@ -28,6 +28,6 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.CARNOT_TECH }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: supervisorctl restart devops_assignment
