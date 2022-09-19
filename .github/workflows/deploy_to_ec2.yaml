@@ -19,7 +19,6 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "./"
           REMOTE_HOST: "ec2-35-154-158-70.ap-south-1.compute.amazonaws.com"
           REMOTE_USER: "cornet_tech"
           TARGET: "/app/"
