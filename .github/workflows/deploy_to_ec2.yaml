@@ -20,10 +20,9 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
-          username: root
+          username: ${{ secrets.EC2_USERNAME}}
+          password: "Cornet@123"
           scp_target: "/app/"
-          before_script: |
-            df -h
           after_script: |
-            ls -la
-            supervisorctl restart devops_assignment
+            ls /app/carnot_tech
+            
