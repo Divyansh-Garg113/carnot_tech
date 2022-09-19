@@ -15,18 +15,14 @@ jobs:
       - name: Checkout the files
         uses: actions/checkout@v3
       
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.CARNOT_TECH }}
-          known_hosts: unnecessary
-
-      - name: Adding Known Hosts
-        run: ssh-keyscan -p ${{ secrets.SSH_PORT}} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
-
-      - name: Deploy files to ec2 server with rsync
-        run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./* ${{ secrets.EC2_USERNAME }}@${{ secrets.SSH_HOST }}:/app/cornet_tech        
-        
+      - name: Deploy to ec2 server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.EC2_USERNAME }}
+          TARGET: "/app/carnot_tech"
+      
       - name: restart supervisor process
         uses: appleboy/ssh-action@master
         with:
