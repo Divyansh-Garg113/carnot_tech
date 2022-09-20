@@ -20,6 +20,6 @@ if __name__ == '__main__':
 
         sys.exit(0)
 
-def lambda_handle(event, context):
+def lambda_handler(event, context):
     print("Starting the blocking scheduler, inside lambda_handle() method")
     scheduler.start()
