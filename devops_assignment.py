@@ -7,7 +7,7 @@ scheduler = BlockingScheduler()
 
 @scheduler.scheduled_job('cron', second='0')
 def say_hello():
-        print("Hello", datetime.datetime.utcnow())
+        print("Hi", datetime.datetime.utcnow())
 if __name__ == '__main__':
         procs = []
         try:
